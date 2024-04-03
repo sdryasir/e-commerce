@@ -1,26 +1,14 @@
 import express from 'express';
 const app = express();
+import router from './routes/routes.products.js';
+const PORT = 8000;
 
 
-//localhost:8000/test
-app.get('/test', (request, response)=>{
-    const product = {
-        title:'Test Product',
-        description:'Some description',
-        price:256
-    }
-
-    response.send(product);
-})
-
-app.get('/abc', (request, response)=>{
-
-    response.send("Hello");
-})
+app.use('/', router)
 
 
-app.listen(8000, ()=>{
-    console.log('Server is listening at port 8000');
+app.listen(PORT, ()=>{
+    console.log(`Server is listening at port ${PORT}`);
 })
 
 
