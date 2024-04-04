@@ -1,27 +1,12 @@
-export const getAllProducts = (request, response)=>{
-    const product = [
-        {
-            title:'Test Product 1',
-            description:'Some description',
-            price:256
-        },
-        {
-            title:'Test Product 2',
-            description:'Some description',
-            price:256
-        },
-        {
-            title:'Test Product 3',
-            description:'Some description',
-            price:256
-        }
-    ]
+import { products } from "../model/products.js";
 
-    response.send(product);
+export const getAllProducts = (request, response)=>{
+    response.json(products);
 }
 
-export const getProduct = (req, res)=>{
-    res.send('Single product request')
+export const getProduct = (req, res, next)=>{
+    
+    next();
 }
 export const createNewProduct = (req, res)=>{
     res.send('Create product request')
